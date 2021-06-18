@@ -21,19 +21,10 @@ const Login = (props) => {
 
   const login = e => {
     e.preventDefault();
-    console.log("Credentials object on login: ", credentials);
-    //do an axios call to the login route http://localhost:5000/api/login
-    //pass in credientials
-    //if successful, console.log token
-    //if error, console.log err
+
     axios.post('http://localhost:5000/api/login', credentials)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
-        // this.setState({
-        //   isAuth: true,
-        //   username: res.data.username,
-        //   role: res.data.role
-        // })
         props.history.push('/bubble');
       })
       .catch(err => {
