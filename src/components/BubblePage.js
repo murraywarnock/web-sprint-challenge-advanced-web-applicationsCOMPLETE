@@ -26,6 +26,10 @@ const BubblePage = () => {
   };
 
   const deleteColor = (colorToDelete) => {
+    // console.log("BubblePage deleteColor colorToDelete.id: ", colorToDelete.id);
+    deleteColorService(colorToDelete.id);
+    fetchColorService(setColors);
+
   };
 
   useEffect(() => {  
