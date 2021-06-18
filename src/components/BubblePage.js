@@ -31,7 +31,7 @@ const BubblePage = () => {
   useEffect(() => {  
     axiosWithAuth()
     fetchColorService(setColors);
-    }, []);
+    }, [editing]);
 
   return (
     <div className="container">
