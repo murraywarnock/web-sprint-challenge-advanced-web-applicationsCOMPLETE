@@ -1,11 +1,47 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+// import { useHistory as history } from 'react-dom';
+import axios from 'axios';
 
-const Login = () => {
+const Login = (props) => {
+  
+  const [credentials, setCredentials] = useState({username: "Lambda", password: "School"})
+
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
-
-  const error = "";
+  // const error = "";
   //replace with error state
+  const [error, setError] = useState("");
+
+  const handleChange = e => {
+    setCredentials({
+        ...credentials,
+        [e.target.name]: e.target.value      
+  });
+  };
+
+  const login = e => {
+    e.preventDefault();
+    console.log("Credentials object on login: ", credentials);
+    //do an axios call to the login route http://localhost:5000/api/login
+    //pass in credientials
+    //if successful, console.log token
+    //if error, console.log err
+    axios.post('http://localhost:5000/api/login', credentials)
+      .then(res => {
+        localStorage.setItem("token", res.data.payload);
+        // this.setState({
+        //   isAuth: true,
+        //   username: res.data.username,
+        //   role: res.data.role
+        // })
+        props.history.push('/bubble');
+      })
+      .catch(err => {
+        console.log("Axios login error: ", err);
+        // setError(err);
+      })
+
+  };
 
   return (
     <div>
@@ -13,7 +49,25 @@ const Login = () => {
       <div data-testid="loginForm" className="login-form">
         <h2>Build login form here</h2>
       </div>
-
+      <form onSubmit={login}>
+         <label htmlFor="username">Username: </label>
+          <input
+            type="text"
+            name="username"
+            data-testid="username"
+            value={credentials.username}
+            onChange={handleChange}
+          />
+          <label htmlFor="password">Password: </label>
+          <input
+            type="password"
+            name="password"
+            data-testid="pasword"
+            value={credentials.password}
+            onChange={handleChange}
+          />
+          <button>Log in</button>
+        </form>
       <p data-testid="errorMessage" className="error">{error}</p>
     </div>
   );
