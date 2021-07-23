@@ -23,7 +23,7 @@ const EditMenu = (props) => {
     toggleEdit(false);
   }
 
-  return(<form data-testid="editMenu" onSubmit={handleSubmit}>
+  return(<form data-testid="edit_Menu" onSubmit={handleSubmit}>
       <legend>edit color</legend>
       <label htmlFor="colorName">color name:
         <input
@@ -45,7 +45,7 @@ const EditMenu = (props) => {
     
       <div className="button-row">
         <button type="submit" data-testid="submitButton">save</button>
-        <button onClick={handleCancel}>cancel</button>
+        <button onClick={handleCancel} data-testid="cancel_button">cancel</button>
       </div>
   </form>);
 }

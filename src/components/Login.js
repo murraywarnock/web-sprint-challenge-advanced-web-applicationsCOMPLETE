@@ -24,7 +24,7 @@ const Login = (props) => {
   // const error = "";
   //replace with error state
     axios.post('http://localhost:5000/api/login', credentials)
-      .then(res => { console.log("login response: ", res);
+      .then(res => {
   //5. If the username / password is equal to Lambda / i<3Lambd4, save that token to localStorage.
   // ABOVE CREDENTIALS DO NOT RETURN A TOKEN; ONLY A 403 ERROR!
         localStorage.setItem("token", res.data.payload);
