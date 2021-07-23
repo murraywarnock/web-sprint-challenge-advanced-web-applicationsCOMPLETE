@@ -63,7 +63,9 @@ const Login = (props) => {
             value={credentials.password}
             onChange={handleChange}
           />
-          <button id="submit" >Log in</button>
+          <button data-testid = "submit" 
+                  id="submit" >Log in
+          </button>
         </form>
       <p data-testid="errorMessage" className="error">{error}</p>
     </div>
