@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from 'react-router-dom';
 
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
@@ -9,10 +8,9 @@ import { editColorService, deleteColorService } from '../services/colorServices'
 import fetchColorService from '../services/fetchColorService';
 
 
-const BubblePage = () => {
+const BubblePage = (props) => {
   const [colors, setColors] = useState([]);
   const [editing, setEditing] = useState(false);
-  const { push } = useHistory;
 //1. When the component mounts, make an axios call to retrieve all color data and push to state.
 useEffect(() => {  
   axiosWithAuth()
@@ -26,7 +24,7 @@ useEffect(() => {
   const saveEdit = (editColor) => {
     editColorService(editColor);
     fetchColorService(setColors);
-    push('/bubble');
+    props.history.push('/bubble');
     toggleEdit(false);
   };
 
