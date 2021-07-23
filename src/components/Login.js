@@ -67,7 +67,7 @@ const Login = (props) => {
                   id="submit" >Log in
           </button>
         </form>
-      <p data-testid="errorMessage" className="error">{error}</p>
+      <p data-testid="errorMessage" id="error" className="error">{error}</p>
     </div>
   );
 };
