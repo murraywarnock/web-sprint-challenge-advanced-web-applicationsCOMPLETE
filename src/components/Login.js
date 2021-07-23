@@ -59,7 +59,7 @@ const Login = (props) => {
             type="password" 
             name="password" 
             data-testid="password" 
-            id="pasword" 
+            id="password" 
             value={credentials.password}
             onChange={handleChange}
           />
