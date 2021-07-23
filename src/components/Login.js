@@ -47,17 +47,19 @@ const Login = (props) => {
 {/* //3. MAKE SURE YOUR USERNAME AND PASSWORD INPUTS INCLUDE data-testid="username" and data-testid="password" */}
          <label htmlFor="username">Username: </label>
           <input
-            type="text"
-            name="username"
-            id="username"
+            type="text" 
+            name="username" 
+            data-testid="username" 
+            id="username" 
             value={credentials.username}
             onChange={handleChange}
           />
           <label htmlFor="password">Password: </label>
           <input
-            type="password"
-            name="password"
-            id="pasword"
+            type="password" 
+            name="password" 
+            data-testid="password" 
+            id="pasword" 
             value={credentials.password}
             onChange={handleChange}
           />
