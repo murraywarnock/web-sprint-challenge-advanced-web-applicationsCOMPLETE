@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Login = (props) => {
  //2. Add whatever state nessiary for form functioning. 
-  const [credentials, setCredentials] = useState({username: "Lambda", password: "School"})
+  const [credentials, setCredentials] = useState({username: "", password: ""})
   const [error, setError] = useState("");
 
   const handleChange = e => {

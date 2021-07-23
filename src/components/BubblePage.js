@@ -7,7 +7,6 @@ import axiosWithAuth from '../helpers/axiosWithAuth';
 import { editColorService, deleteColorService } from '../services/colorServices';
 import fetchColorService from '../services/fetchColorService';
 
-
 const BubblePage = (props) => {
   const [colors, setColors] = useState([]);
   const [editing, setEditing] = useState(false);
