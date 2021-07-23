@@ -12,12 +12,17 @@ import fetchColorService from '../services/fetchColorService';
 const BubblePage = () => {
   const [colors, setColors] = useState([]);
   const [editing, setEditing] = useState(false);
-  const { push } = useHistory();
+  const { push } = useHistory;
+//1. When the component mounts, make an axios call to retrieve all color data and push to state.
+useEffect(() => {  
+  axiosWithAuth()
+  fetchColorService(setColors);
+}, [editing]);
 
   const toggleEdit = (value) => {
     setEditing(value);
   };
-
+//2. Complete saveEdit, deleteColor functions
   const saveEdit = (editColor) => {
     editColorService(editColor);
     fetchColorService(setColors);
@@ -26,16 +31,9 @@ const BubblePage = () => {
   };
 
   const deleteColor = (colorToDelete) => {
-    // console.log("BubblePage deleteColor colorToDelete.id: ", colorToDelete.id);
     deleteColorService(colorToDelete.id);
     fetchColorService(setColors);
-
   };
-
-  useEffect(() => {  
-    axiosWithAuth()
-    fetchColorService(setColors);
-    }, [editing]);
 
   return (
     <div className="container">
@@ -46,7 +44,3 @@ const BubblePage = () => {
 };
 
 export default BubblePage;
-
-//Task List:
-//1. When the component mounts, make an axios call to retrieve all color data and push to state.
-//2. Complete saveEdit, deleteColor functions

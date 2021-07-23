@@ -3,6 +3,7 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 
 1. Explain what a token is used for.
+A token is a one-way encryption of authorization credentials. that  Presenting the token to the server indicates that a client has been successfully authenticated.
 
 2. What steps can you take in your web apps to keep your data secure?
 
