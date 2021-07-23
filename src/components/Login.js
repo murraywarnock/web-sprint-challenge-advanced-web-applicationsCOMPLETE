@@ -50,7 +50,7 @@ const Login = (props) => {
             type="text" 
             name="username" 
             data-testid="username" 
-            id="username" 
+            id="submit" 
             value={credentials.username}
             onChange={handleChange}
           />
@@ -59,7 +59,7 @@ const Login = (props) => {
             type="password" 
             name="password" 
             data-testid="password" 
-            id="password" 
+            id="submit" 
             value={credentials.password}
             onChange={handleChange}
           />
